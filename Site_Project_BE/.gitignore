@@ -1,0 +1,39 @@
+# Build
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code / Rider
+.vscode/
+.idea/
+
+# App settings (secrets)
+appsettings.json
+appsettings.Development.json
+appsettings.Production.json
+
+# Logs
+logs/
+*.log
+
+# Database
+*.mdf
+*.ldf
+*.bak
+
+# Publish
+publish/
+
+# Node
+node_modules/
+dist/
+
+# OS
+Thumbs.db
+.DS_Store

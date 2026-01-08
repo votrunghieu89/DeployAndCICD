@@ -1,0 +1,6 @@
+﻿dotnet ef migrations remove -- xoá migration
+dotnet ef migrations add Tên Migration -- Khởi tạo 1 migration
+dotnet ef database update -- tạo 1 db dựa trên migration mới nhất
+dotnet ef database update Tên migration -- tạo 1 db dựa trên tên migration ( có thể là ver cũ)
+dotnet ef migrations list -- Lịch sử khời tạo Migration
+

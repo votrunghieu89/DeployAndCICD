@@ -1,0 +1,128 @@
+.folder-list-empty {
+  text-align: center;
+  padding: 3rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  p {
+    color: #666;
+    font-size: 1.1rem;
+  }
+}
+
+.folder-list {
+  h2 {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .folder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    .folder-item {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .folder-clickable {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex: 1;
+      }
+
+      .folder-icon {
+        svg {
+          width: 48px;
+          height: 48px;
+          color: #667eea;
+        }
+      }
+
+      .folder-info {
+        flex: 1;
+
+        h3 {
+          color: #333;
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          word-break: break-word;
+        }
+
+        .folder-date {
+          color: #999;
+          font-size: 0.875rem;
+        }
+      }
+
+      .folder-actions {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+
+        button {
+          padding: 0.5rem;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+
+          &.btn-edit {
+            background: #e3f2fd;
+            color: #42a5f5;
+
+            &:hover {
+              background: #42a5f5;
+              color: white;
+              transform: scale(1.1);
+            }
+          }
+
+          &.btn-delete {
+            background: #ffebee;
+            color: #f44336;
+
+            &:hover {
+              background: #f44336;
+              color: white;
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .folder-list {
+    .folder-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

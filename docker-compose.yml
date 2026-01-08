@@ -1,0 +1,53 @@
+version: "3.9"
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+
+  frontend:
+    build: 
+      context: ./Site_Project_FE_temp
+      dockerfile: Dockerfile
+    container_name: frontend
+    expose:
+      - "80"
+
+  backend:
+    build: 
+      context: ./Site_Project_BE
+      dockerfile: Dockerfile
+    container_name: backend
+    expose:
+      - "8080"
+    depends_on:
+      - sqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: >
+        Server=sqlserver,1433;
+        Database=SiteProject;
+        User Id=sa;
+        Password=YourStrong@Password123;
+        TrustServerCertificate=True;
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "YourStrong@Password123"
+    volumes:
+      - sql_data:/var/opt/mssql
+    expose:
+      - "1433"
+
+volumes:
+  sql_data:

@@ -1,0 +1,15 @@
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #42a5f5 0%, #478ed1 100%);
+  padding: 2rem;
+
+  .register-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

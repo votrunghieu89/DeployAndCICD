@@ -1,0 +1,88 @@
+.note-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f5e9 0%, #b2dfdb 100%);
+  padding: 2rem;
+
+  .note-header {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    background: #ffffff;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .btn-back {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        background: #f5f5f5;
+        color: #666;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        &:hover {
+          background: #e0e0e0;
+          transform: translateX(-4px);
+        }
+      }
+
+      h1 {
+        color: #333;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        .folder-icon {
+          width: 32px;
+          height: 32px;
+          color: #42a5f5;
+        }
+      }
+    }
+  }
+
+  .note-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .note-page {
+    padding: 1rem;
+
+    .note-header {
+      .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+
+        .btn-back {
+          align-self: flex-start;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
