@@ -14,7 +14,7 @@ services:
 
   frontend:
     build: 
-      context: ./Site_Project_FE_temp
+      context: ./Site_Project_FE
       dockerfile: Dockerfile
     container_name: frontend
     expose:
