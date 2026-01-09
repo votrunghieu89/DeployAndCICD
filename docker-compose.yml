@@ -11,17 +11,21 @@ services:
     depends_on:
       - frontend
       - backend
+    networks:
+      - app_net
 
   frontend:
-    build: 
+    build:
       context: ./Site_Project_FE
       dockerfile: Dockerfile
     container_name: frontend
     expose:
       - "80"
+    networks:
+      - app_net
 
   backend:
-    build: 
+    build:
       context: ./Site_Project_BE
       dockerfile: Dockerfile
     container_name: backend
@@ -37,9 +41,13 @@ services:
         User Id=sa;
         Password=YourStrong@Password123;
         TrustServerCertificate=True;
+    volumes:
+      - ./Site_Project_BE/appsettings.Production.json:/app/appsettings.Production.json:ro
+    networks:
+      - app_net
 
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: sqlserver
     environment:
       ACCEPT_EULA: "Y"
@@ -48,6 +56,16 @@ services:
       - sql_data:/var/opt/mssql
     expose:
       - "1433"
+    deploy:
+      resources:
+        limits:
+          memory: 7g
+          cpus: "2"
+    networks:
+      - app_net
 
 volumes:
   sql_data:
+
+networks:
+  app_net:
